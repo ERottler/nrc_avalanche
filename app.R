@@ -13,13 +13,6 @@ library(glue)
 library(shinyauthr)
 library(leaflet)
 
-user_base <- tibble(
-  user = c("guest_user", "guest_user2"),
-  # password = c("1", "pass2"), 
-  password_hash = sapply(c("nrcTF#2020", "nrcTF#2020"), sodium::password_store), 
-  permissions = c("standard", "standard"),
-  name = c("Guest user", "User Two")
-)
 
 ui <- dashboardPage(
   skin = "black",
@@ -33,7 +26,7 @@ ui <- dashboardPage(
   ),
   
   dashboardSidebar(
-    collapsed = T,
+    collapsed = F,
     width = 200,
     sidebarMenu(
       menuItem("Task Force", tabName = "task", icon = icon("align-left")),
@@ -47,60 +40,6 @@ ui <- dashboardPage(
   ),
   
   dashboardBody(
-    shinyjs::useShinyjs(),
-    # tags$head(tags$style(".table{margin: 0 auto;}"),
-              # tags$script(src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/3.5.16/iframeResizer.contentWindow.min.js",
-              #             type="text/javascript"),
-              # includeScript("returnClick.js")
-    # ),
-    shinyauthr::loginUI("login"),
-    # uiOutput("user_table"),
-    uiOutput("testUI"),
-    HTML('<div data-iframe-height></div>')
-  )
-)
-
-server <- function(input, output, session) {
-  
-  credentials <- callModule(shinyauthr::login, "login", 
-                            data = user_base,
-                            user_col = user,
-                            pwd_col = password_hash,
-                            sodium_hashed = TRUE,
-                            log_out = reactive(logout_init()))
-  
-  logout_init <- callModule(shinyauthr::logout, "logout", reactive(credentials()$user_auth))
-  text_init   <- callModule(shinyauthr::logout, "text", reactive(credentials()$user_auth))
-  
-  observe({
-    if(credentials()$user_auth) {
-      shinyjs::removeClass(selector = "body", class = "sidebar-collapse")
-    } else {
-      shinyjs::addClass(selector = "body", class = "sidebar-collapse")
-    }
-  })
-  
-  observe({
-    if(credentials()$user_auth) {
-      shinyjs::removeClass(selector = "body", class = "sidebar-collapse")
-    }
-  })
-  
-  points <- eventReactive(input$recalc, {
-    # cbind(rnorm(40) * 2 + 13, rnorm(40) + 48)
-    cbind(10.784606, 46.780291)
-  }, ignoreNULL = FALSE)
-  
-  output$map <- renderLeaflet({
-    leaflet() %>%
-      addProviderTiles(providers$OpenTopoMap, group = "Open Topo") %>%
-      addCircleMarkers(data = points(), color = "red")
-
-  })
-  
-  output$testUI <- renderUI({
-    req(credentials()$user_auth)
-    
     tabItems(
       
       # Tab content 'Task Force'
@@ -109,7 +48,7 @@ server <- function(input, output, session) {
               fluidRow(
                 
                 column(width = 6,
-                
+                       
                        box(
                          title = "Task Force", collapsible = T,  status = NULL, solidHeader = TRUE,  width = NULL,
                          tags$h4("On 28/12/2019 a large avalanche buried several skiers in the ski resort at the Val Senales 
@@ -142,7 +81,7 @@ server <- function(input, output, session) {
                        )
                        
                        
-                       )
+                )
                 
                 
               )
@@ -157,20 +96,20 @@ server <- function(input, output, session) {
                        
                        box(
                          title = "Accident", collapsible = T,  status = NULL, solidHeader = TRUE,  width = NULL,
-                           tags$h4("The avalanche was triggered midday around 12:10 and started high above the ski 
-                                   slope at elevations around 3000 m asl. According to the mountain rescue team it
-                                   had a length of approximately 1 km and was  about 200 m wide. On its way down the steep
-                                   hillside, it more and more increase in size and even was able to surpase the little
-                                   depression located before the ski run. Large masses of snow reached the prepared ski run.
-                                   Around 100 people from the mountain rescue service with search dogs and fire fighters
-                                   were at the scene of accident to rescue victims.
-                                   On the day of accident, the avalanche report assigned a 'considerable' level of danger for the area. 
-                                   It pointed out that 'even single winter sport participants can release avalanches easily, 
-                                   including dangerously large ones.' Furthermore, it hints at the possibility of natural 
-                                   avalanches in high Alpine regions. The main source of danger is wind-drifted snow. 
-                                   Strong northerly winds redistributed fresh snow from the previous day to form wind slabs 
-                                   that poorly bond to the old snowpack.", align = "justify")
-                       ),
+                         tags$h4("The avalanche was triggered midday around 12:10 and started high above the ski 
+                                 slope at elevations around 3000 m asl. According to the mountain rescue team it
+                                 had a length of approximately 1 km and was  about 200 m wide. On its way down the steep
+                                 hillside, it more and more increase in size and even was able to surpase the little
+                                 depression located before the ski run. Large masses of snow reached the prepared ski run.
+                                 Around 100 people from the mountain rescue service with search dogs and fire fighters
+                                 were at the scene of accident to rescue victims.
+                                 On the day of accident, the avalanche report assigned a 'considerable' level of danger for the area. 
+                                 It pointed out that 'even single winter sport participants can release avalanches easily, 
+                                 including dangerously large ones.' Furthermore, it hints at the possibility of natural 
+                                 avalanches in high Alpine regions. The main source of danger is wind-drifted snow. 
+                                 Strong northerly winds redistributed fresh snow from the previous day to form wind slabs 
+                                 that poorly bond to the old snowpack.", align = "justify")
+                         ),
                        
                        box(
                          title = "Avalanche victim rescue", collapsible = T,  status = NULL, solidHeader = TRUE, collapsed = F,  width = NULL,
@@ -178,7 +117,7 @@ server <- function(input, output, session) {
                          tags$h6("© Photo: Uncredited/ANSA/AP/dpa")
                        )
                        
-                ),
+                         ),
                 
                 column(width = 6,
                        
@@ -201,8 +140,8 @@ server <- function(input, output, session) {
                 )
                 
                 
-              )
-      ),
+                       )
+              ),
       
       # Tab content 'Media coverage'
       tabItem(tabName = "media",
@@ -263,7 +202,7 @@ server <- function(input, output, session) {
                        )
                        
                        
-                ),
+                       ),
                 
                 column(width = 6,
                        
@@ -317,7 +256,7 @@ server <- function(input, output, session) {
                          tags$img(src='screenshot_corriere.png', align = "center", width = '100%', height = "20%")
                        )
                 ),
-              
+                
                 box(
                   title = "Tagesschau24", collapsible = T,  status = NULL, solidHeader = TRUE, collapsed = T, width = 12,
                   tags$a(href="https://www.tagesschau.de/ausland/lawine-suedtirol-105.html",
@@ -326,9 +265,9 @@ server <- function(input, output, session) {
                              controls = "controls", width = 800)
                 )
                 
-              )
+                       )
               
-      ),
+                ),
       
       # Tab content 'Avalanche Risk'
       tabItem(tabName = "risk",
@@ -357,7 +296,7 @@ server <- function(input, output, session) {
                                  settlements and away from transportation corridors, where the recreationist or group tour guide 
                                  is responsible for assessing the local avalanche danger before embarking on activities such as 
                                  ski-touring and off-piste riding.", align = "justify")
-                       ),
+                         ),
                        
                        box(
                          title = "Avalanche Fatalities: Long-term Trends", collapsible = T,  status = NULL, solidHeader = TRUE,  width = NULL,
@@ -383,9 +322,9 @@ server <- function(input, output, session) {
                                  instructions for assessing local conditions, the risk can be estimated for the specific location of interest
                                  using the “avalanche mantra” [6].", 
                                  align = "justify")
-                       )
+                         )
                        
-                ),
+                         ),
                 
                 column(width = 6,
                        
@@ -403,7 +342,7 @@ server <- function(input, output, session) {
                                  the decreasing availability of snow during this time of year. However, the relative proportion of wet snow 
                                  avalanches might increase in the future. ", align = "justify")
                          
-                       ),
+                         ),
                        
                        box(
                          title = "References", collapsible = T,  status = NULL, solidHeader = TRUE,  width = NULL, collapsed = F,
@@ -415,11 +354,11 @@ server <- function(input, output, session) {
                          tags$h6("[6] https://www.alpenverein.de/bergsport/sicherheit/winter/das-lawinen-mantra-strategie-handwerkszeug_aid_34410.html")
                        )
                        
-                )
+                       )
                 
                 
-              )
-      ),
+                       )
+                ),
       # Tab content 'Field trip'
       tabItem(tabName = "trip",
               
@@ -437,7 +376,7 @@ server <- function(input, output, session) {
                                  of practical and theoretical teaching units on snow research and avalanche awareness. 
                                  The field trip included an introduction to the high alpine measurement network in the Rofental. 
                                  Particular attention was put on the measurement site 'Bella Vista' (see section 'Measurements').", align = "justify")
-                       ),
+                         ),
                        
                        box(
                          title = "Trip to Grawand via Hochjochferner", collapsible = T,  status = NULL, solidHeader = TRUE, collapsed = F, width = NULL,
@@ -454,7 +393,7 @@ server <- function(input, output, session) {
                          tags$img(src='avalanche_slope.png', align = "center", width = '100%', height = "20%")
                        )
                        
-                ),
+                         ),
                 
                 column(width = 6,
                        
@@ -480,8 +419,8 @@ server <- function(input, output, session) {
                        
                 )
                 
-              )
-      ),
+                       )
+              ),
       
       # Tab content 'Measurements'
       tabItem(tabName = "measure",
@@ -493,13 +432,13 @@ server <- function(input, output, session) {
                        box(
                          title = "Measurements", collapsible = T,  status = NULL, solidHeader = TRUE, width = NULL,
                          tags$h4("The measurement site 'Bella Vista' is located 2805 m asl at formerly glaciated ground. The site is part of the Long-Term Socio-Ecologial Research (LTSER) area Rofental. It is operated by the 
-                           University of Innsbruck, Department of Geography and data inter alia is used to 
-                           assess avalanche risk and risk of flooding in the region. The specific station set-up 
-                           with snow pillow and snow scale enables investigations of wind-driven snow-redistribution.
-                           The snow scale in the hollow only was installed the previous summer (see pictures below). 
-                           Analysis results hint at strong wind the night before the accident. Snow is removed from the
-                           snow pillow and accumulates on the snow scale.", align = "justify")
-                       ),
+                                 University of Innsbruck, Department of Geography and data inter alia is used to 
+                                 assess avalanche risk and risk of flooding in the region. The specific station set-up 
+                                 with snow pillow and snow scale enables investigations of wind-driven snow-redistribution.
+                                 The snow scale in the hollow only was installed the previous summer (see pictures below). 
+                                 Analysis results hint at strong wind the night before the accident. Snow is removed from the
+                                 snow pillow and accumulates on the snow scale.", align = "justify")
+                         ),
                        
                        box(
                          title = "Time series plots", collapsible = T,  status = NULL, solidHeader = TRUE, collapsed = F, align = 'center', width = NULL,
@@ -516,7 +455,7 @@ server <- function(input, output, session) {
                          tags$img(src='bv_winter_view.png', align = "center", width = '100%', height = "20%")
                        )
                        
-                ),
+                         ),
                 
                 column(width = 6,
                        
@@ -542,8 +481,8 @@ server <- function(input, output, session) {
                        
                 )
                 
-              )
-      ),
+                       )
+              ),
       
       # Tab content 'Summmary'
       tabItem(tabName = "contact",
@@ -566,8 +505,27 @@ server <- function(input, output, session) {
                 
               )
       )
+      ),
+    
+    HTML('<div data-iframe-height></div>')
+  
     )
+)
+
+server <- function(input, output, session) {
+  
+  points <- eventReactive(input$recalc, {
+    # cbind(rnorm(40) * 2 + 13, rnorm(40) + 48)
+    cbind(10.784606, 46.780291)
+  }, ignoreNULL = FALSE)
+  
+  output$map <- renderLeaflet({
+    leaflet() %>%
+      addProviderTiles(providers$OpenTopoMap, group = "Open Topo") %>%
+      addCircleMarkers(data = points(), color = "red")
+
   })
+  
 
 }
 
