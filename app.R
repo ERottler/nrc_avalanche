@@ -50,7 +50,19 @@ ui <- dashboardPage(
                 column(width = 6,
                        
                        box(
-                         title = "Task Force 'Avalanche': Summary", collapsible = T,  status = NULL, solidHeader = TRUE,  width = NULL,
+                         title = "NatRiskChange Task Force", collapsible = T,  status = NULL, solidHeader = TRUE,  width = NULL,
+                         tags$h4("This Shiny dashbord was assembled in the framework of a NatRiskChange Task Force.
+                                 In order to enable and enhance interdisciplinary and inter-methodological team work, PhD Students of 
+                                 of the DFG-funded Research Training Group NatRiskchange investigate
+                                 recent natural disasters under real-time conditions. For more information on NatRiskChange and
+                                 completed and ongoing Task Forces, please visit our website",
+                                 tags$a("natriskchange.de", href = "https://www.uni-potsdam.de/en/natriskchange"),
+                                 "or follow us on twitter:",
+                                 tags$a("twitter.com/NatRiskChange", href = "https://twitter.com/NatRiskChange"))
+                       ),
+                       
+                       box(
+                         title = "Summary", collapsible = T,  status = NULL, solidHeader = TRUE,  width = NULL,
                          tags$h4("On 28/12/2019 a large avalanche buried several skiers in the ski resort at the Val Senales 
                                  Glacier, South Tyrol. Three German ski tourists were fatally injured. The tragedy was extensively 
                                  covered by local and international media. The scene of accident is  located in close proximity to 
@@ -63,7 +75,8 @@ ui <- dashboardPage(
                            tags$li(tags$h4("Compilation and summary of media coverage")), 
                            tags$li(tags$h4("Description of the accident based on media and avalanche reports")),
                            tags$li(tags$h4("Assessment of past and present changes in avalanche risk in the Alps")),
-                           tags$li(tags$h4("Field trip to the site of accident together with colleagues from University of Innsbruck")),
+                           tags$li(tags$h4("Field trip to the site of accident including practical and theoretical teaching 
+                                           units on snow research and avalanche awareness")),
                            tags$li(tags$h4("Analysis of measurment data with regard to wind-driven snow redistribution"))
                          )
                        )
@@ -493,9 +506,14 @@ ui <- dashboardPage(
                          title = "RTG NatRiskChange", collapsible = T,  status = NULL, solidHeader = TRUE,  width = NULL,
                          tags$h4("This dashboard was assembled in the framework of a NatRiskChange Task Force by Erwin Rottler 
                                  and Lena Katharina Schmidt. For further information on the research training group and our activities, 
-                                 please visit: www.natriskchange.de. We thank the working group 'Human-environment systems research' 
+                                 please visit:",
+                                 tags$a("www.natriskchange.de", href = "https://www.uni-potsdam.de/en/natriskchange")),
+                         tags$h4("We thank the working group 'Human-environment systems research' 
                                  of the University of Innsbruck, particularly Ulrich Strasser and Michael Warscher, for their support. "),
-                         tags$h4("Should you have any question or have/want further information, please do not hesitate to contact us: rottler(a)uni-potsdam.de")
+                         tags$h4("Should you have any question or have/want further information, please do not hesitate to contact us: rottler(a)uni-potsdam.de"),
+                         tags$h4("Source code of this Shny dashboard is availabble at:",
+                            tags$a("https://github.com/ERottler/nrc_avalanche", href = "https://github.com/ERottler/nrc_avalanche")
+                         )
                          
                        )
                 )
