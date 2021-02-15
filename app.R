@@ -50,16 +50,14 @@ ui <- dashboardPage(
                 column(width = 6,
                        
                        box(
-                         title = "Task Force", collapsible = T,  status = NULL, solidHeader = TRUE,  width = NULL,
+                         title = "Task Force 'Avalanche': Summary", collapsible = T,  status = NULL, solidHeader = TRUE,  width = NULL,
                          tags$h4("On 28/12/2019 a large avalanche buried several skiers in the ski resort at the Val Senales 
-                                 Glacier, South Tyrol. Three German ski tourists were fatally injured. The accident gave rise
-                                 to grief and dismay not just among affected families, but in the entire winter sport community. 
-                                 The tragedy was extensively covered by local and international media. The scene of accident is 
-                                 located in close proximity to the high mountain climate station 'Bella Vista' operated by the 
-                                 University of Innsbruck. The unique instrument composition at the measurement site inter alia
-                                 enables investigations of wind-driven snow redistribution, a process that might have played an 
-                                 important role in the genesis of the fatal avalanche. In the framework of a NatRiskChange Task 
-                                 Force, we aim to examine the event in more detail. The examination consists of five parts:",
+                                 Glacier, South Tyrol. Three German ski tourists were fatally injured. The tragedy was extensively 
+                                 covered by local and international media. The scene of accident is  located in close proximity to 
+                                 the high mountain climate station 'Bella Vista' operated by the University of Innsbruck. The unique 
+                                 instrument composition at the measurement site inter alia enables investigations of wind-driven snow 
+                                 redistribution. In the framework of a NatRiskChange Task Force, we aim to examine the event in more detail. 
+                                 The examination consists of five parts:",
                                  align = "justify"),
                          tags$ul(
                            tags$li(tags$h4("Compilation and summary of media coverage")), 
@@ -158,11 +156,11 @@ ui <- dashboardPage(
                                  from NRW were injured. Condolences were inter alia sent from prime Minister of Thuringia 
                                  Bodo Ramelow and the German minister of defence Annegret Kramp-Karrenbauer. The following days,
                                  the question arises, how this terrible accident was possible. Experienced stuff of the ski lift 
-                                 management assesses the security within the ski resort on a daily basis. The could not detect the 
+                                 management assesses the security within the ski resort on a daily basis. They could not detect the 
                                  immediate danger. In addition, it is not sure whether the avalanche triggerted on its own 
                                  (an act of nature beyond control) or weather tour hikers set off the avalanche. The public 
                                  prosecution office of Bozen ordered a 
-                                 report from the responsible avalanche commission and started investigations on involuntary manslaugter.",
+                                 report from the responsible avalanche commission and started investigations.",
                                  align = "justify")
                        ),
                        
@@ -280,7 +278,7 @@ ui <- dashboardPage(
                          title = "How often do accidents like these occure?", collapsible = T,  status = NULL, solidHeader = TRUE,  width = NULL,
                          tags$h4("In December 2019, two incidents where avalanches affected secured ski slopes and buried several 
                                  people occurred within a few days, one in Andermatt-Sedrun in Switzerland and the other is the 
-                                 avalanche accident in Schnals investigated in this taskforce. While media describe incidents like 
+                                 avalanche accident in Schnals investigated in this Task Force. While media describe incidents like 
                                  this as “very rare”, we wondered, how unusual these incidents really are and whether we 
                                  can find statistics on this.", align = "justify"), 
                          tags$h4("Unfortunately, this proves difficult to assess: the number of 
@@ -330,9 +328,9 @@ ui <- dashboardPage(
                        
                        box(
                          title = "Future changes in avalanche risk in the European Alps", collapsible = T,  status = NULL, solidHeader = TRUE,  width = NULL, collapsed = F,
-                         tags$h4("As we have seen, the number of avalanche fatalities decreased in controlled terrain in the past due to preventive measures and 
-                                 implementation and training of local avalanche commissions. Yet another interesting question if there might 
-                                 be an opposing trend in avalanche hazard due to climate change. This seems likely since possible avalanche 
+                         tags$h4("The number of avalanche fatalities decreased in controlled terrain in the past due to preventive measures and 
+                                 implementation and training of local avalanche commissions. However, an open question is, whether there  
+                                 is an opposing trend in avalanche hazard due to climate change. This seems likely since possible avalanche 
                                  triggering factors such as precipitation or temperature will be affected by climate change. However, it has
                                  apparently not been proven that avalanche events will accumulate in the near future [2]: On the 
                                  one hand, studies investigating avalanche activity in the past were not able to detect long-term changes. 
@@ -495,7 +493,7 @@ ui <- dashboardPage(
                          title = "RTG NatRiskChange", collapsible = T,  status = NULL, solidHeader = TRUE,  width = NULL,
                          tags$h4("This dashboard was assembled in the framework of a NatRiskChange Task Force by Erwin Rottler 
                                  and Lena Katharina Schmidt. For further information on the research training group and our activities, 
-                                 please visit 'www.natriskchange.de'. We thank the working group 'Human-environment systems research' 
+                                 please visit: www.natriskchange.de. We thank the working group 'Human-environment systems research' 
                                  of the University of Innsbruck, particularly Ulrich Strasser and Michael Warscher, for their support. "),
                          tags$h4("Should you have any question or have/want further information, please do not hesitate to contact us: rottler(a)uni-potsdam.de")
                          
