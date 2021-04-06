@@ -8,7 +8,7 @@
 library(xts)
 library(scales)
 
-data_dir <- "/home/rottler/ownCloud/RhineFlow/task_force/R/avalanche/data/"
+data_dir <- "/home/erwin/ownCloud/RhineFlow/task_force/R/nrc_avalanche/data/"
 file_bv <- paste0(data_dir, "csv/07150961_191004000000_-_200224182000.csv")
 
 #read_data----
@@ -27,7 +27,7 @@ for(i in 2:ncol(data_bv)){
 bv_xts <- xts::xts(data_bv, data_bv$time) #define time series object
 
 #plot_data----
-pdf(paste0(data_dir, "bv_fig.pdf"), width = 12, height = 6)
+png(paste0(data_dir, "bv_plot.png"), width = 12, height = 6, res = 500, units = "in")
 
 time_sel <- '2019-12-26 05:00:00 CET/2019-12-28 16:00:00 CET'
 
@@ -36,7 +36,7 @@ x_tics <- which(as.character(index(bv_xts$`Temperatur MW`[time_sel])) %in% c("20
 x_labs <- c("27/12/2019", "28/12/2019")
 
 par(mfrow = c(3, 2))
-
+par(bg = "white")
 par(mar = c(2, 1.5, 2.5, 1.5))
 
 #Temperature

@@ -15,7 +15,8 @@ library(leaflet)
 
 
 ui <- dashboardPage(
-  skin = "black",
+  
+  # skin = "black",
   
   dashboardHeader(title = "NRC Task Force",
                   titleWidth = 200,
@@ -40,6 +41,59 @@ ui <- dashboardPage(
   ),
   
   dashboardBody(
+    
+    tags$head(tags$style(HTML('
+                         
+                              /* logo */
+                              .skin-blue .main-header .logo {
+                              background-color: #000000;
+                              color:#FFFFFF;
+                              }
+                              
+                              /* logo when hovered */
+                              .skin-blue .main-header .logo:hover {
+                              background-color: #000000;
+                              }
+                              
+                              /* navbar (rest of the header) */
+                              .skin-blue .main-header .navbar {
+                              background-color: #000000;
+                              }
+                              
+                              .main-header .logo {
+                              font-family: sans-serif;
+                              font-weight: bold;
+                              font-size: 16px;
+                              }
+        
+                              .skin-blue .main-sidebar {
+                              background-color: #000000;
+                              }
+                              
+                              /* body */
+                              .content-wrapper, .right-side {
+                              background-color: #333333;
+                              text-align: justify;
+                              font-family:  sans-serif;
+                              font-size: 14px;
+                              }
+                              
+                              .box.box-solid.box-primary>.box-header {
+                              color:#FFFFFF;
+                              background:#000000
+                              }
+                              
+                              .box.box-solid.box-primary{
+                              border-bottom-color: #666666;
+                              border-left-color:#666666;
+                              border-right-color:#666666;
+                              border-top-color:#666666;
+                              background:#333333;
+                              color:#FFFFFF
+                              }
+                              
+                              '))),
+    
     tabItems(
       
       # Tab content 'Task Force'
@@ -50,20 +104,20 @@ ui <- dashboardPage(
                 column(width = 6,
                        
                        box(
-                         title = "NatRiskChange Task Force", collapsible = T,  status = NULL, solidHeader = TRUE,  width = NULL,
+                         title = "NatRiskChange Task Force", collapsible = T,  status = "primary", solidHeader = TRUE,  width = NULL,
                          tags$h4("This Shiny dashbord was assembled in the framework of a NatRiskChange Task Force.
                                  In order to enable and enhance interdisciplinary and inter-methodological team work, PhD Students of 
-                                 of the DFG-funded Research Training Group NatRiskchange investigate
-                                 recent natural disasters under real-time conditions. For more information on NatRiskChange and
-                                 completed and ongoing Task Forces, please visit our website",
-                                 tags$a("natriskchange.de", href = "https://www.uni-potsdam.de/en/natriskchange"),
-                                 "or follow us on twitter:",
-                                 tags$a("twitter.com/NatRiskChange", href = "https://twitter.com/NatRiskChange"))
+                                 the DFG-funded Research Training Group NatRiskchange investigate recent natural disasters under real-time conditions. For more information on NatRiskChange and
+                                 completed and ongoing Task Forces, please visit our",
+                                 tags$a("website", href = "https://www.uni-potsdam.de/en/natriskchange"),
+                                 "or follow us on",
+                                 tags$a("twitter", href = "https://twitter.com/NatRiskChange"),
+                                 ".")
                        ),
                        
                        box(
-                         title = "Summary", collapsible = T,  status = NULL, solidHeader = TRUE,  width = NULL,
-                         tags$h4("On 28/12/2019 a large avalanche buried several skiers in the ski resort at the Val Senales 
+                         title = "Summary", collapsible = T,  status = "primary", solidHeader = TRUE,  width = NULL,
+                         tags$h4("On the 28th of december 2019, a large avalanche buried several skiers in the ski resort at the Val Senales 
                                  Glacier, South Tyrol. Three German ski tourists were fatally injured. The tragedy was extensively 
                                  covered by local and international media. The scene of accident is  located in close proximity to 
                                  the high mountain climate station 'Bella Vista' operated by the University of Innsbruck. The unique 
@@ -72,7 +126,7 @@ ui <- dashboardPage(
                                  The examination consists of five parts:",
                                  align = "justify"),
                          tags$ul(
-                           tags$li(tags$h4("Compilation and summary of media coverage")), 
+                           tags$li(tags$h4("Compilation and summary of the media coverage")), 
                            tags$li(tags$h4("Description of the accident based on media and avalanche reports")),
                            tags$li(tags$h4("Assessment of past and present changes in avalanche risk in the Alps")),
                            tags$li(tags$h4("Field trip to the site of accident including practical and theoretical teaching 
@@ -87,7 +141,7 @@ ui <- dashboardPage(
                 column(width = 6,
                        
                        box(
-                         title = "Overview Map", collapsible = T,  status = NULL, solidHeader = TRUE,  width = NULL,
+                         title = "Overview Map", collapsible = T,  status = "primary", solidHeader = TRUE,  width = NULL,
                          leafletOutput("map")
                        )
                        
@@ -106,11 +160,11 @@ ui <- dashboardPage(
                 column(width = 6,
                        
                        box(
-                         title = "Accident", collapsible = T,  status = NULL, solidHeader = TRUE,  width = NULL,
+                         title = "Accident", collapsible = T,  status = "primary", solidHeader = TRUE,  width = NULL,
                          tags$h4("The avalanche was triggered midday around 12:10 and started high above the ski 
                                  slope at elevations around 3000 m asl. According to the mountain rescue team it
                                  had a length of approximately 1 km and was  about 200 m wide. On its way down the steep
-                                 hillside, it more and more increase in size and even was able to surpase the little
+                                 hillside, it more and more increased in size and even was able to surpase the little
                                  depression located before the ski run. Large masses of snow reached the prepared ski run.
                                  Around 100 people from the mountain rescue service with search dogs and fire fighters
                                  were at the scene of accident to rescue victims.
@@ -123,7 +177,7 @@ ui <- dashboardPage(
                          ),
                        
                        box(
-                         title = "Avalanche victim rescue", collapsible = T,  status = NULL, solidHeader = TRUE, collapsed = F,  width = NULL,
+                         title = "Avalanche victim rescue", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = F,  width = NULL,
                          tags$img(src='avalanche_3.jpeg', align = "center", width = '100%', height = "20%"),
                          tags$h6("© Photo: Uncredited/ANSA/AP/dpa")
                        )
@@ -133,7 +187,7 @@ ui <- dashboardPage(
                 column(width = 6,
                        
                        box(
-                         title = "Helicopter at the scene of accident", collapsible = T,  status = NULL, solidHeader = TRUE, collapsed = F,  width = NULL,
+                         title = "Helicopter at the scene of accident", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = F,  width = NULL,
                          tags$img(src='avalanche_2.jpeg', align = "center", width = '100%', height = "20%"),
                          tags$h6("© Photo: Uncredited/ANSA/AP/dpa")
                        )
@@ -141,12 +195,12 @@ ui <- dashboardPage(
                 ),
                 
                 box(
-                  title = "Avalanche report 28/12/2020 (ENG)", collapsible = T,  status = NULL, solidHeader = TRUE, collapsed = T,  width = 12,
+                  title = "Avalanche report 28/12/2020 (ENG)", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = T,  width = 12,
                   tags$iframe(style="height:600px; width:100%; scrolling=yes", src = "2019-12-28_IT-32-BZ_en.pdf")
                 ),
                 
                 box(
-                  title = "Lawinen report 28/12/2020 (DEU)", collapsible = T,  status = NULL, solidHeader = TRUE, collapsed = T,  width = 12,
+                  title = "Lawinen report 28/12/2020 (DEU)", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = T,  width = 12,
                   tags$iframe(style="height:600px; width:100%; scrolling=yes", src = "2019-12-28_IT-32-BZ_de.pdf")
                 )
                 
@@ -161,12 +215,12 @@ ui <- dashboardPage(
                 column(width = 6,
                        
                        box(
-                         title = "Media coverage", collapsible = T,  status = NULL, solidHeader = TRUE,  width = NULL,
+                         title = "Media coverage", collapsible = T,  status = "primary", solidHeader = TRUE,  width = NULL,
                          tags$h4("In the following, we present a selection of media reports covering the accident.
-                                 In addition to local newspapers, numerous important media companies covered the incidence.
-                                 In the accident a mother and her 7-year old daughter from Thuringia, Germany and another 
+                                 In addition to local newspapers, numerous big media companies covered the incidence.
+                                 In the accident, a mother and her 7-year old daughter from Thuringia, Germany and another 
                                  7-year girl from North-Rhine-Westphalia, Germany, died. The father and brother of the girl 
-                                 from NRW were injured. Condolences were inter alia sent from prime Minister of Thuringia 
+                                 from NRW were injured. Condolences were sent from the prime Minister of Thuringia 
                                  Bodo Ramelow and the German minister of defence Annegret Kramp-Karrenbauer. The following days,
                                  the question arises, how this terrible accident was possible. Experienced stuff of the ski lift 
                                  management assesses the security within the ski resort on a daily basis. They could not detect the 
@@ -178,37 +232,42 @@ ui <- dashboardPage(
                        ),
                        
                        box(
-                         title = "ORF Tirol", collapsible = T,  status = NULL, solidHeader = TRUE, collapsed =F,  width = NULL,
+                         title = "ORF Tirol", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed =F,  width = NULL,
                          tags$a(href="https://tirol.orf.at/stories/3027879/", 
                                 "Lokalaugenschein nach Lawinendrama"),
-                         tags$img(src='screenshot_orf.png', align = "center", width = '100%', height = "20%")
+                         tags$p(""),
+                         tags$img(src='screenshot_orf.png', width = '100%', height = "20%")
                        ),
                        
                        box(
-                         title = "Tiroler Tageszeitung", collapsible = T,  status = NULL, solidHeader = TRUE, collapsed = T,  width = NULL,
+                         title = "Tiroler Tageszeitung", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = T,  width = NULL,
                          tags$a(href="https://www.tt.com/artikel/16490101/toedlicher-lawinenabgang-in-suedtirol-bleibt-raetselhaft", 
                                 "Tödlicher Lawinenabgang in Südtirol bleibt rätselhaft"),
+                         tags$p(""),
                          tags$img(src='screenshot_tt.png', align = "center", width = '100%', height = "20%")
                        ),
                        
                        box(
-                         title = "Mitteldeutscher Rundfunk (MDR)", collapsible = T,  status = NULL, solidHeader = TRUE, collapsed = T,  width = NULL,
+                         title = "Mitteldeutscher Rundfunk (MDR)", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = T,  width = NULL,
                          tags$a(href="https://www.mdr.de/thueringen/lawinenunglueck-suedtirol-100.html", 
                                 "Skifahrer aus Thüringen bei Lawinenunglück ums Leben gekommen"),
+                         tags$p(""),
                          tags$img(src='screenshot_mdr.png', align = "center", width = '100%', height = "20%")
                        ),
                        
                        box(
-                         title = "Neue Züricher Zeitung (NZZ)", collapsible = T,  status = NULL, solidHeader = TRUE, collapsed = T,  width = NULL,
+                         title = "Neue Züricher Zeitung (NZZ)", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = T,  width = NULL,
                          tags$a(href="https://www.nzz.ch/panorama/frau-und-zwei-kinder-in-suedtirol-von-lawine-verschuettet-und-getoetet-lawinenabgang-auch-in-der-region-von-leysin-ld.1531101", 
                                 "Frau und zwei Kinder aus Deutschland in Südtirol von Lawine getötet – im Wallis verschütteter Tourengänger inzwischen gestorben"),
+                         tags$p(""),
                          tags$img(src='screenshot_nzz.png', align = "center", width = '100%', height = "20%")
                        ),
                        
                        box(
-                         title = "Südtirol News", collapsible = T,  status = NULL, solidHeader = TRUE, collapsed = T,  width = NULL,
+                         title = "Südtirol News", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = T,  width = NULL,
                          tags$a(href="https://www.suedtirolnews.it/chronik/drei-lawinen-tote-im-schnalstal-ermittlungen-der-staatsanwaltschaft", 
                                 "Drei Lawinen-Tote im Schnalstal: Ermittlungen der Staatsanwaltschaft"),
+                         tags$p(""),
                          tags$img(src='screenshot_suedtirolnews.png', align = "center", width = '100%', height = "20%")
                        )
                        
@@ -218,60 +277,68 @@ ui <- dashboardPage(
                 column(width = 6,
                        
                        box(
-                         title = "Tagesschau", collapsible = T,  status = NULL, solidHeader = TRUE, collapsed = F,  width = NULL,
+                         title = "Tagesschau", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = F,  width = NULL,
                          tags$a(href="https://www.tagesschau.de/ausland/lawine-suedtirol-105.html", 
                                 "Schock und Ermittlungen nach der Lawine"),
+                         tags$p(""),
                          tags$img(src='screenshot_tagesschau.png', align = "center", width = '100%', height = "20%")
                        ),
                        
                        box(
-                         title = "Berliner Morgenpost", collapsible = T,  status = NULL, solidHeader = TRUE, collapsed = T,  width = NULL,
+                         title = "Berliner Morgenpost", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = T,  width = NULL,
                          tags$a(href="https://www.morgenpost.de/vermischtes/article228011759/Suedtirol-Lawine-reisst-in-Schnalstal-auf-Skipiste-Frau-und-Kinder-in-Tod-Opfer-aus-NRW.html", 
                                 "Lawinen in Südtirol - Ermittlungen wegen fahrlässiger Tötung"),
+                         tags$p(""),
                          tags$img(src='screenshot_morgenpost.png', align = "center", width = '100%', height = "20%")
                        ),
                        
                        box(
-                         title = "Frankfurte Allgemeine Zeitung", collapsible = T,  status = NULL, solidHeader = TRUE, collapsed = T,  width = NULL,
+                         title = "Frankfurte Allgemeine Zeitung", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = T,  width = NULL,
                          tags$a(href="https://www.faz.net/aktuell/gesellschaft/ungluecke/drei-tote-nach-lawine-haette-die-talabfahrt-gesperrt-werden-muessen-16557539.html", 
                                 "Hätte die Talabfahrt gesperrt werden müssen?"),
+                         tags$p(""),
                          tags$img(src='screenshot_faz.png', align = "center", width = '100%', height = "20%")
                        ),
                        
                        
                        box(
-                         title = "Spiegel", collapsible = T,  status = NULL, solidHeader = TRUE, collapsed = T,  width = NULL,
+                         title = "Spiegel", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = T,  width = NULL,
                          tags$a(href="https://www.spiegel.de/panorama/suedtirol-staatsanwalt-ermittelt-nach-lawinenunglueck-gegen-fuenf-menschen-a-1303196.html", 
                                 "Staatsanwaltschaft ermittelt nach Lawinenunglück gegen fünf Menschen"),
+                         tags$p(""),
                          tags$img(src='screenshot_spiegel.png', align = "center", width = '100%', height = "20%")
                        ),
                        
                        box(
-                         title = "Zeit Online", collapsible = T,  status = NULL, solidHeader = TRUE, collapsed = T,  width = NULL,
+                         title = "Zeit Online", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = T,  width = NULL,
                          tags$a(href="https://www.zeit.de/gesellschaft/zeitgeschehen/2019-12/alpen-lawinen-unglueck-tote-auswaertiges-amt", 
                                 "Mehrere Tote bei Lawinenabgängen"),
+                         tags$p(""),
                          tags$img(src='screenshot_zeit.png', align = "center", width = '100%', height = "20%")
                        ),
                        
                        box(
-                         title = "Focus Online", collapsible = T,  status = NULL, solidHeader = TRUE, collapsed = T,  width = NULL,
+                         title = "Focus Online", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = T,  width = NULL,
                          tags$a(href="https://www.focus.de/panorama/welt/skigebiet-schnalstal-deutsche-frau-und-kind-7-sterben-bei-lawine-in-suedtirol_id_11500678.html", 
                                 "Frau und zwei Mädchen aus Deutschland sterben bei Lawine in Südtirol"),
+                         tags$p(""),
                          tags$img(src='screenshot_fokus.png', align = "center", width = '100%', height = "20%")
                        ),
                        
                        box(
-                         title = "Corriere", collapsible = T,  status = NULL, solidHeader = TRUE, collapsed = T,  width = NULL,
+                         title = "Corriere", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = T,  width = NULL,
                          tags$a(href="https://www.corriere.it/cronache/19_dicembre_28/valanga-val-senales-travolti-sciatori-due-morti-grave-bambino-fb5e0954-2983-11ea-a8f0-127c1f8f40cd.shtml?refresh_ce-cp", 
                                 "Valanga in Val Senales, travolti sciatori: morte una donna e due bambine"),
+                         tags$p(""),
                          tags$img(src='screenshot_corriere.png', align = "center", width = '100%', height = "20%")
                        )
                 ),
                 
                 box(
-                  title = "Tagesschau24", collapsible = T,  status = NULL, solidHeader = TRUE, collapsed = T, width = 12,
+                  title = "Tagesschau24", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = T, width = 12,
                   tags$a(href="https://www.tagesschau.de/ausland/lawine-suedtirol-105.html",
                          "Drei Deutsche bei Lawinenunglück getötet"),
+                  tags$p(""),
                   tags$video(id="video", type = "video/mp4",src = "TV-20191229-1119-3301.webxl.h264.mp4",
                              controls = "controls", width = 800)
                 )
@@ -288,7 +355,7 @@ ui <- dashboardPage(
                 column(width = 6,
                        
                        box(
-                         title = "How often do accidents like these occure?", collapsible = T,  status = NULL, solidHeader = TRUE,  width = NULL,
+                         title = "How often do accidents like these occure?", collapsible = T,  status = "primary", solidHeader = TRUE,  width = NULL,
                          tags$h4("In December 2019, two incidents where avalanches affected secured ski slopes and buried several 
                                  people occurred within a few days, one in Andermatt-Sedrun in Switzerland and the other is the 
                                  avalanche accident in Schnals investigated in this Task Force. While media describe incidents like 
@@ -299,7 +366,7 @@ ui <- dashboardPage(
                                  of avalanche fatalities in “controlled terrain”: the term includes settlements and buildings as 
                                  well as transportation corridors such as roads, ski runs and winter hiking trails. For these terrains, 
                                  generally some authority is responsible for the safety and must take appropriate measures to reduce 
-                                 the risk [1]. In the case of a ski run for example, this would be the ski area 
+                                 the risk [1]. In the case of a ski run, for example, this would be the ski area 
                                  management operating it.", align = "justify"),
                          tags$h4("In Austria, strict regulations on avalanche control are in place with regard 
                                  to ski areas, which combine technical measures, forecasting, artificial release and the temporary 
@@ -310,7 +377,7 @@ ui <- dashboardPage(
                          ),
                        
                        box(
-                         title = "Avalanche Fatalities: Long-term Trends", collapsible = T,  status = NULL, solidHeader = TRUE,  width = NULL,
+                         title = "Avalanche Fatalities: Long-term Trends", collapsible = T,  status = "primary", solidHeader = TRUE,  width = NULL,
                          tags$h4("The graph below shows the number of fatalities in controlled and uncontrolled terrains since 
                                  the 1950s in Switzerland, Austria and Slovenia assessed in [1]:", align = "justify"),
                          tags$img(src='stats_graph.png', align = "center", width = '100%', height = "20%"),
@@ -340,7 +407,7 @@ ui <- dashboardPage(
                 column(width = 6,
                        
                        box(
-                         title = "Future changes in avalanche risk in the European Alps", collapsible = T,  status = NULL, solidHeader = TRUE,  width = NULL, collapsed = F,
+                         title = "Future changes in avalanche risk in the European Alps", collapsible = T,  status = "primary", solidHeader = TRUE,  width = NULL, collapsed = F,
                          tags$h4("The number of avalanche fatalities decreased in controlled terrain in the past due to preventive measures and 
                                  implementation and training of local avalanche commissions. However, an open question is, whether there  
                                  is an opposing trend in avalanche hazard due to climate change. This seems likely since possible avalanche 
@@ -356,7 +423,7 @@ ui <- dashboardPage(
                          ),
                        
                        box(
-                         title = "References", collapsible = T,  status = NULL, solidHeader = TRUE,  width = NULL, collapsed = F,
+                         title = "References", collapsible = T,  status = "primary", solidHeader = TRUE,  width = NULL, collapsed = F,
                          tags$h6("[1] Techel et al. 2016. „Avalanche Fatalities in the European Alps: Long-Term Trends and Statistics“. Geographica Helvetica 71, Nr. 2 (28. Juni 2016): 147–59. https://doi.org/10.5194/gh-71-147-2016."),
                          tags$h6("[2] Höller P. 2007: Avalanche Hazards and Mitigation in Austria: A Review“. Natural Hazards 43, Nr. 1 (1. Oktober 2007): 81–101. https://doi.org/10.1007/s11069-007-9109-2."),
                          tags$h6("[3] https://de.statista.com/statistik/daten/studie/798794/umfrage/lawinentote-in-oesterreich-nach-bundeslaendern/"),
@@ -378,7 +445,7 @@ ui <- dashboardPage(
                 column(width = 6,
                        
                        box(
-                         title = "Field Trip", collapsible = T,  status = NULL, solidHeader = TRUE, width = NULL,
+                         title = "Field Trip", collapsible = T,  status = "primary", solidHeader = TRUE, width = NULL,
                          tags$h4("A field trip to the Alps between 18-20 February made a visit of the scene of accident 
                                  and the surrounding area possible. The venture was undertaken in collaboration with the 
                                  University of Innsbruck. Under the leadership of Univ.-Prof. Dr. Ulrich Strasser, 
@@ -390,17 +457,17 @@ ui <- dashboardPage(
                          ),
                        
                        box(
-                         title = "Trip to Grawand via Hochjochferner", collapsible = T,  status = NULL, solidHeader = TRUE, collapsed = F, width = NULL,
+                         title = "Trip to Grawand via Hochjochferner", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = F, width = NULL,
                          tags$img(src='grawand.png', align = "center", width = '100%', height = "20%")
                        ),
                        
                        box(
-                         title = "Practical exercise Rutschblock test", collapsible = T,  status = NULL, solidHeader = TRUE, collapsed = F, width = NULL,
+                         title = "Practical exercise Rutschblock test", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = F, width = NULL,
                          tags$img(src='rutschblock.png', align = "center", width = '100%', height = "20%")
                        ),
                        
                        box(
-                         title = "Visit scene of accident", collapsible = T,  status = NULL, solidHeader = TRUE, collapsed = T, width = NULL,
+                         title = "Visit scene of accident", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = T, width = NULL,
                          tags$img(src='avalanche_slope.png', align = "center", width = '100%', height = "20%")
                        )
                        
@@ -409,22 +476,22 @@ ui <- dashboardPage(
                 column(width = 6,
                        
                        box(
-                         title = "Practical exercise avalanche probes", collapsible = T,  status = NULL, solidHeader = TRUE, collapsed = F, width = NULL,
+                         title = "Practical exercise avalanche probes", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = F, width = NULL,
                          tags$img(src='aval_probs.png', align = "center", width = '100%', height = "20%")
                        ),
                        
                        box(
-                         title = "Trip to Im Hinteren Eis and Hintereisferner", collapsible = T,  status = NULL, solidHeader = TRUE, collapsed = F, width = NULL,
+                         title = "Trip to Im Hinteren Eis and Hintereisferner", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = F, width = NULL,
                          tags$img(src='DSCF1056.jpg', align = "center", width = '100%', height = "20%")
                        ),
                        
                        box(
-                         title = "Practical exercise avalanche burial/search", collapsible = T,  status = NULL, solidHeader = TRUE, collapsed = T, width = NULL,
+                         title = "Practical exercise avalanche burial/search", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = T, width = NULL,
                          tags$img(src='avalanche_burial.png', align = "center", width = '100%', height = "20%")
                        ),
                        
                        box(
-                         title = "Practical exercise snow profiles", collapsible = T,  status = NULL, solidHeader = TRUE, collapsed = T, width = NULL,
+                         title = "Practical exercise snow profiles", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = T, width = NULL,
                          tags$img(src='snow_profiles.png', align = "center", width = '100%', height = "20%")
                        )
                        
@@ -441,7 +508,7 @@ ui <- dashboardPage(
                 column(width = 6,
                        
                        box(
-                         title = "Measurements", collapsible = T,  status = NULL, solidHeader = TRUE, width = NULL,
+                         title = "Measurements", collapsible = T,  status = "primary", solidHeader = TRUE, width = NULL,
                          tags$h4("The measurement site 'Bella Vista' is located 2805 m asl at formerly glaciated ground. The site is part of the Long-Term Socio-Ecologial Research (LTSER) area Rofental. It is operated by the 
                                  University of Innsbruck, Department of Geography and data inter alia is used to 
                                  assess avalanche risk and risk of flooding in the region. The specific station set-up 
@@ -452,17 +519,17 @@ ui <- dashboardPage(
                          ),
                        
                        box(
-                         title = "Time series plots", collapsible = T,  status = NULL, solidHeader = TRUE, collapsed = F, align = 'center', width = NULL,
-                         tags$img(src='bv_plot.png', align = "center", width = '100%')
+                         title = "Time series plots", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = F, align = 'center', width = NULL,
+                         tags$img(src='bv_fig.png', align = "center", width = '100%')
                        ),
                        
                        box(
-                         title = "Installation snow scale 09/2019", collapsible = T,  status = NULL, solidHeader = TRUE, collapsed = T, width = NULL,
+                         title = "Installation snow scale 09/2019", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = T, width = NULL,
                          tags$img(src='scale_install.png', align = "center", width = '100%', height = "20%")
                        ),
                        
                        box(
-                         title = "View from the cabin Bella Vista 02/2020", collapsible = T,  status = NULL, solidHeader = TRUE, collapsed = T, width = NULL,
+                         title = "View from the cabin Bella Vista 02/2020", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = T, width = NULL,
                          tags$img(src='bv_winter_view.png', align = "center", width = '100%', height = "20%")
                        )
                        
@@ -471,22 +538,22 @@ ui <- dashboardPage(
                 column(width = 6,
                        
                        box(
-                         title = "Measurement set-up", collapsible = T,  status = NULL, solidHeader = TRUE, collapsed = F, width = NULL,
-                         tags$img(src='stat_scheme.png', align = "center", width = '100%', height = "20%")
+                         title = "Measurement set-up", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = F, width = NULL,
+                         tags$img(src='stat_schem.png', align = "center", width = '100%', height = "20%")
                        ),
                        
                        box(
-                         title = "LTSER Rofental", collapsible = T,  status = NULL, solidHeader = TRUE, collapsed = T, width = NULL,
+                         title = "LTSER Rofental", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = T, width = NULL,
                          tags$img(src='rofental.png', align = "center", width = '100%', height = "20%")
                        ),
                        
                        box(
-                         title = "Bella Vista station 02/2020", collapsible = T,  status = NULL, solidHeader = TRUE, collapsed = T,  width = NULL,
+                         title = "Bella Vista station 02/2020", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = T,  width = NULL,
                          tags$img(src='bv_winter.png', align = "center", width = '100%', height = "20%")
                        ),
                        
                        box(
-                         title = "View from cabin Bella Vista 09/2019", collapsible = T,  status = NULL, solidHeader = TRUE, collapsed = T,  width = NULL,
+                         title = "View from cabin Bella Vista 09/2019", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = T,  width = NULL,
                          tags$img(src='scale_install_II.png', align = "center", width = '100%', height = "20%")
                        )
                        
@@ -503,15 +570,17 @@ ui <- dashboardPage(
                 column(width = 12,
                        
                        box(
-                         title = "RTG NatRiskChange", collapsible = T,  status = NULL, solidHeader = TRUE,  width = NULL,
+                         title = "RTG NatRiskChange", collapsible = T,  status = "primary", solidHeader = TRUE,  width = NULL,
                          tags$h4("This dashboard was assembled in the framework of a NatRiskChange Task Force by Erwin Rottler 
                                  and Lena Katharina Schmidt. For further information on the research training group and our activities, 
-                                 please visit:",
-                                 tags$a("www.natriskchange.de", href = "https://www.uni-potsdam.de/en/natriskchange")),
+                                 please visit our",
+                                 tags$a("website", href = "https://www.uni-potsdam.de/en/natriskchange"),
+                                 "or follow us on",
+                                 tags$a("twitter", href = "https://twitter.com/NatRiskChange")),
                          tags$h4("We thank the working group 'Human-environment systems research' 
                                  of the University of Innsbruck, particularly Ulrich Strasser and Michael Warscher, for their support. "),
                          tags$h4("Should you have any question or have/want further information, please do not hesitate to contact us: rottler(a)uni-potsdam.de"),
-                         tags$h4("Source code of this Shny dashboard is availabble at:",
+                         tags$h4("Source code of this Shny dashboard is availabble at",
                             tags$a("https://github.com/ERottler/nrc_avalanche", href = "https://github.com/ERottler/nrc_avalanche")
                          )
                          
