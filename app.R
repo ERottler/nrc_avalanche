@@ -109,9 +109,9 @@ ui <- dashboardPage(
                                  In order to enable and enhance interdisciplinary and inter-methodological team work, PhD Students of 
                                  the DFG-funded Research Training Group NatRiskchange investigate recent natural disasters under real-time conditions. For more information on NatRiskChange and
                                  completed and ongoing Task Forces, please visit our",
-                                 tags$a("website", href = "https://www.uni-potsdam.de/en/natriskchange"),
+                                 tags$a("website", href = "https://www.uni-potsdam.de/en/natriskchange", target="_blank"),
                                  "or follow us on",
-                                 tags$a("twitter", href = "https://twitter.com/NatRiskChange"),
+                                 tags$a("twitter", href = "https://twitter.com/NatRiskChange", target="_blank"),
                                  ".")
                        ),
                        
@@ -234,7 +234,7 @@ ui <- dashboardPage(
                        box(
                          title = "ORF Tirol", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed =F,  width = NULL,
                          tags$a(href="https://tirol.orf.at/stories/3027879/", 
-                                "Lokalaugenschein nach Lawinendrama"),
+                                "Lokalaugenschein nach Lawinendrama", target="_blank"),
                          tags$p(""),
                          tags$img(src='screenshot_orf.png', width = '100%', height = "20%")
                        ),
@@ -242,7 +242,7 @@ ui <- dashboardPage(
                        box(
                          title = "Tiroler Tageszeitung", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = T,  width = NULL,
                          tags$a(href="https://www.tt.com/artikel/16490101/toedlicher-lawinenabgang-in-suedtirol-bleibt-raetselhaft", 
-                                "Tödlicher Lawinenabgang in Südtirol bleibt rätselhaft"),
+                                "Tödlicher Lawinenabgang in Südtirol bleibt rätselhaft", target="_blank"),
                          tags$p(""),
                          tags$img(src='screenshot_tt.png', align = "center", width = '100%', height = "20%")
                        ),
@@ -250,7 +250,7 @@ ui <- dashboardPage(
                        box(
                          title = "Mitteldeutscher Rundfunk (MDR)", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = T,  width = NULL,
                          tags$a(href="https://www.mdr.de/thueringen/lawinenunglueck-suedtirol-100.html", 
-                                "Skifahrer aus Thüringen bei Lawinenunglück ums Leben gekommen"),
+                                "Skifahrer aus Thüringen bei Lawinenunglück ums Leben gekommen", target="_blank"),
                          tags$p(""),
                          tags$img(src='screenshot_mdr.png', align = "center", width = '100%', height = "20%")
                        ),
@@ -258,7 +258,7 @@ ui <- dashboardPage(
                        box(
                          title = "Neue Züricher Zeitung (NZZ)", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = T,  width = NULL,
                          tags$a(href="https://www.nzz.ch/panorama/frau-und-zwei-kinder-in-suedtirol-von-lawine-verschuettet-und-getoetet-lawinenabgang-auch-in-der-region-von-leysin-ld.1531101", 
-                                "Frau und zwei Kinder aus Deutschland in Südtirol von Lawine getötet – im Wallis verschütteter Tourengänger inzwischen gestorben"),
+                                "Frau und zwei Kinder aus Deutschland in Südtirol von Lawine getötet – im Wallis verschütteter Tourengänger inzwischen gestorben", target="_blank"),
                          tags$p(""),
                          tags$img(src='screenshot_nzz.png', align = "center", width = '100%', height = "20%")
                        ),
@@ -266,7 +266,7 @@ ui <- dashboardPage(
                        box(
                          title = "Südtirol News", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = T,  width = NULL,
                          tags$a(href="https://www.suedtirolnews.it/chronik/drei-lawinen-tote-im-schnalstal-ermittlungen-der-staatsanwaltschaft", 
-                                "Drei Lawinen-Tote im Schnalstal: Ermittlungen der Staatsanwaltschaft"),
+                                "Drei Lawinen-Tote im Schnalstal: Ermittlungen der Staatsanwaltschaft", target="_blank"),
                          tags$p(""),
                          tags$img(src='screenshot_suedtirolnews.png', align = "center", width = '100%', height = "20%")
                        )
@@ -279,7 +279,7 @@ ui <- dashboardPage(
                        box(
                          title = "Tagesschau", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = F,  width = NULL,
                          tags$a(href="https://www.tagesschau.de/ausland/lawine-suedtirol-105.html", 
-                                "Schock und Ermittlungen nach der Lawine"),
+                                "Schock und Ermittlungen nach der Lawine", target="_blank"),
                          tags$p(""),
                          tags$img(src='screenshot_tagesschau.png', align = "center", width = '100%', height = "20%")
                        ),
@@ -287,7 +287,7 @@ ui <- dashboardPage(
                        box(
                          title = "Berliner Morgenpost", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = T,  width = NULL,
                          tags$a(href="https://www.morgenpost.de/vermischtes/article228011759/Suedtirol-Lawine-reisst-in-Schnalstal-auf-Skipiste-Frau-und-Kinder-in-Tod-Opfer-aus-NRW.html", 
-                                "Lawinen in Südtirol - Ermittlungen wegen fahrlässiger Tötung"),
+                                "Lawinen in Südtirol - Ermittlungen wegen fahrlässiger Tötung", target="_blank"),
                          tags$p(""),
                          tags$img(src='screenshot_morgenpost.png', align = "center", width = '100%', height = "20%")
                        ),
@@ -295,7 +295,7 @@ ui <- dashboardPage(
                        box(
                          title = "Frankfurte Allgemeine Zeitung", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = T,  width = NULL,
                          tags$a(href="https://www.faz.net/aktuell/gesellschaft/ungluecke/drei-tote-nach-lawine-haette-die-talabfahrt-gesperrt-werden-muessen-16557539.html", 
-                                "Hätte die Talabfahrt gesperrt werden müssen?"),
+                                "Hätte die Talabfahrt gesperrt werden müssen?", target="_blank"),
                          tags$p(""),
                          tags$img(src='screenshot_faz.png', align = "center", width = '100%', height = "20%")
                        ),
@@ -304,7 +304,7 @@ ui <- dashboardPage(
                        box(
                          title = "Spiegel", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = T,  width = NULL,
                          tags$a(href="https://www.spiegel.de/panorama/suedtirol-staatsanwalt-ermittelt-nach-lawinenunglueck-gegen-fuenf-menschen-a-1303196.html", 
-                                "Staatsanwaltschaft ermittelt nach Lawinenunglück gegen fünf Menschen"),
+                                "Staatsanwaltschaft ermittelt nach Lawinenunglück gegen fünf Menschen", target="_blank"),
                          tags$p(""),
                          tags$img(src='screenshot_spiegel.png', align = "center", width = '100%', height = "20%")
                        ),
@@ -312,7 +312,7 @@ ui <- dashboardPage(
                        box(
                          title = "Zeit Online", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = T,  width = NULL,
                          tags$a(href="https://www.zeit.de/gesellschaft/zeitgeschehen/2019-12/alpen-lawinen-unglueck-tote-auswaertiges-amt", 
-                                "Mehrere Tote bei Lawinenabgängen"),
+                                "Mehrere Tote bei Lawinenabgängen", target="_blank"),
                          tags$p(""),
                          tags$img(src='screenshot_zeit.png', align = "center", width = '100%', height = "20%")
                        ),
@@ -320,7 +320,7 @@ ui <- dashboardPage(
                        box(
                          title = "Focus Online", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = T,  width = NULL,
                          tags$a(href="https://www.focus.de/panorama/welt/skigebiet-schnalstal-deutsche-frau-und-kind-7-sterben-bei-lawine-in-suedtirol_id_11500678.html", 
-                                "Frau und zwei Mädchen aus Deutschland sterben bei Lawine in Südtirol"),
+                                "Frau und zwei Mädchen aus Deutschland sterben bei Lawine in Südtirol", target="_blank"),
                          tags$p(""),
                          tags$img(src='screenshot_fokus.png', align = "center", width = '100%', height = "20%")
                        ),
@@ -328,7 +328,7 @@ ui <- dashboardPage(
                        box(
                          title = "Corriere", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = T,  width = NULL,
                          tags$a(href="https://www.corriere.it/cronache/19_dicembre_28/valanga-val-senales-travolti-sciatori-due-morti-grave-bambino-fb5e0954-2983-11ea-a8f0-127c1f8f40cd.shtml?refresh_ce-cp", 
-                                "Valanga in Val Senales, travolti sciatori: morte una donna e due bambine"),
+                                "Valanga in Val Senales, travolti sciatori: morte una donna e due bambine", target="_blank"),
                          tags$p(""),
                          tags$img(src='screenshot_corriere.png', align = "center", width = '100%', height = "20%")
                        )
@@ -337,7 +337,7 @@ ui <- dashboardPage(
                 box(
                   title = "Tagesschau24", collapsible = T,  status = "primary", solidHeader = TRUE, collapsed = T, width = 12,
                   tags$a(href="https://www.tagesschau.de/ausland/lawine-suedtirol-105.html",
-                         "Drei Deutsche bei Lawinenunglück getötet"),
+                         "Drei Deutsche bei Lawinenunglück getötet", target="_blank"),
                   tags$p(""),
                   tags$video(id="video", type = "video/mp4",src = "TV-20191229-1119-3301.webxl.h264.mp4",
                              controls = "controls", width = 800)
@@ -574,14 +574,14 @@ ui <- dashboardPage(
                          tags$h4("This dashboard was assembled in the framework of a NatRiskChange Task Force by Erwin Rottler 
                                  and Lena Katharina Schmidt. For further information on the research training group and our activities, 
                                  please visit our",
-                                 tags$a("website", href = "https://www.uni-potsdam.de/en/natriskchange"),
+                                 tags$a("website", href = "https://www.uni-potsdam.de/en/natriskchange", target="_blank"),
                                  "or follow us on",
-                                 tags$a("twitter", href = "https://twitter.com/NatRiskChange")),
+                                 tags$a("twitter", href = "https://twitter.com/NatRiskChange", target="_blank")),
                          tags$h4("We thank the working group 'Human-environment systems research' 
                                  of the University of Innsbruck, particularly Ulrich Strasser and Michael Warscher, for their support. "),
                          tags$h4("Should you have any question or have/want further information, please do not hesitate to contact us: rottler(a)uni-potsdam.de"),
                          tags$h4("Source code of this Shny dashboard is availabble at",
-                            tags$a("https://github.com/ERottler/nrc_avalanche", href = "https://github.com/ERottler/nrc_avalanche")
+                            tags$a("https://github.com/ERottler/nrc_avalanche", href = "https://github.com/ERottler/nrc_avalanche", target="_blank")
                          )
                          
                        )
